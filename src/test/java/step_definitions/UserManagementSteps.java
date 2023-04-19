@@ -14,6 +14,9 @@ public class UserManagementSteps {
 	LogInPage loginpage = new LogInPage();
 	BrowserUtils utils = new BrowserUtils();
 	
+	String emailAddress;
+	String passwordInput;
+	
 	// valid log scenario steps
 	
 	@Given("As a user, I am on the login page")
@@ -46,8 +49,13 @@ public class UserManagementSteps {
 	}
 	@Then("I should see an error message")
 	public void i_should_see_an_error_message() {
-		utils.waitUntilElementVisible(loginpage.invalidLoginErrorMessage);
-		Assert.assertTrue(loginpage.invalidLoginErrorMessage.isDisplayed());
+		if (emailAddress.equals("") || passwordInput.equals("")) {
+			utils.waitUntilElementVisible(loginpage.fieldIsRequiredMessage);
+			Assert.assertTrue(loginpage.fieldIsRequiredMessage.isDisplayed());
+		} else {
+			utils.waitUntilElementVisible(loginpage.invalidLoginErrorMessage);
+			Assert.assertTrue(loginpage.invalidLoginErrorMessage.isDisplayed());
+		}
 	}
 	@Then("I should not be logged in")
 	public void i_should_not_be_logged_in() {
@@ -60,6 +68,17 @@ public class UserManagementSteps {
 	public void i_enter_valid_username_and_invalid_password() {
 		utils.actionsSendKeys(loginpage.emailField, DataReader.getProperty("username"));
 		utils.actionsSendKeys(loginpage.passwordField, "helloWorld123");
+	}
+	
+	
+	// scenario outline steps
+
+	@When("I enter email {string} and password {string}")
+	public void i_enter_email_and_password(String email, String password) {
+		emailAddress = email;
+		passwordInput = password;
+	    utils.actionsSendKeys(loginpage.emailField, email);
+	    utils.actionsSendKeys(loginpage.passwordField, password);
 	}
 
 }

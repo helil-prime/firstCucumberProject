@@ -1,1 +1,181 @@
-[{"line":2,"elements":[{"line":6,"name":"","description":"","type":"background","keyword":"Background","steps":[{"result":{"duration":4401545000,"status":"passed"},"line":7,"name":"As a user, I am on the login page","match":{"location":"step_definitions.UserManagementSteps.as_a_user_i_am_on_the_login_page()"},"keyword":"Given "}]},{"start_timestamp":"2023-04-19T01:31:00.452Z","before":[{"result":{"duration":5662039000,"status":"passed"},"match":{"location":"step_definitions.CommonHooks.setup()"}}],"line":39,"name":"Invalid credential login attempt","description":"","id":"crater-app-user-management;invalid-credential-login-attempt;;2","after":[{"result":{"duration":81207000,"status":"passed"},"match":{"location":"step_definitions.CommonHooks.teardown()"}}],"type":"scenario","keyword":"Scenario Outline","steps":[{"result":{"duration":3570152000,"status":"passed"},"line":32,"name":"I enter email \"entityadmin@primetechschool.com\" and password \"hellopassword\"","match":{"arguments":[{"val":"\"entityadmin@primetechschool.com\"","offset":14},{"val":"\"hellopassword\"","offset":61}],"location":"step_definitions.UserManagementSteps.i_enter_email_and_password(java.lang.String,java.lang.String)"},"keyword":"When "},{"result":{"duration":1851054000,"status":"passed"},"line":33,"name":"I click on login button","match":{"location":"step_definitions.UserManagementSteps.i_click_on_login_button()"},"keyword":"And "},{"result":{"duration":747437000,"status":"passed"},"line":34,"name":"I should see an error message","match":{"location":"step_definitions.UserManagementSteps.i_should_see_an_error_message()"},"keyword":"Then "},{"result":{"duration":30773000,"status":"passed"},"line":35,"name":"I should not be logged in","match":{"location":"step_definitions.UserManagementSteps.i_should_not_be_logged_in()"},"keyword":"And "}],"tags":[{"name":"@login"},{"name":"@regression"},{"name":"@invalidLoginAttempts"}]},{"line":6,"name":"","description":"","type":"background","keyword":"Background","steps":[{"result":{"duration":5352657000,"status":"passed"},"line":7,"name":"As a user, I am on the login page","match":{"location":"step_definitions.UserManagementSteps.as_a_user_i_am_on_the_login_page()"},"keyword":"Given "}]},{"start_timestamp":"2023-04-19T01:31:16.904Z","before":[{"result":{"duration":4851749000,"status":"passed"},"match":{"location":"step_definitions.CommonHooks.setup()"}}],"line":40,"name":"Invalid credential login attempt","description":"","id":"crater-app-user-management;invalid-credential-login-attempt;;3","after":[{"result":{"duration":76955000,"status":"passed"},"match":{"location":"step_definitions.CommonHooks.teardown()"}}],"type":"scenario","keyword":"Scenario Outline","steps":[{"result":{"duration":3903641000,"status":"passed"},"line":32,"name":"I enter email \"entityAd@primetechschool.com\" and password \"primetech@school\"","match":{"arguments":[{"val":"\"entityAd@primetechschool.com\"","offset":14},{"val":"\"primetech@school\"","offset":58}],"location":"step_definitions.UserManagementSteps.i_enter_email_and_password(java.lang.String,java.lang.String)"},"keyword":"When "},{"result":{"duration":1384845000,"status":"passed"},"line":33,"name":"I click on login button","match":{"location":"step_definitions.UserManagementSteps.i_click_on_login_button()"},"keyword":"And "},{"result":{"duration":1103204000,"status":"passed"},"line":34,"name":"I should see an error message","match":{"location":"step_definitions.UserManagementSteps.i_should_see_an_error_message()"},"keyword":"Then "},{"result":{"duration":17962000,"status":"passed"},"line":35,"name":"I should not be logged in","match":{"location":"step_definitions.UserManagementSteps.i_should_not_be_logged_in()"},"keyword":"And "}],"tags":[{"name":"@login"},{"name":"@regression"},{"name":"@invalidLoginAttempts"}]},{"line":6,"name":"","description":"","type":"background","keyword":"Background","steps":[{"result":{"duration":4604151000,"status":"passed"},"line":7,"name":"As a user, I am on the login page","match":{"location":"step_definitions.UserManagementSteps.as_a_user_i_am_on_the_login_page()"},"keyword":"Given "}]},{"start_timestamp":"2023-04-19T01:31:33.616Z","before":[{"result":{"duration":4854307000,"status":"passed"},"match":{"location":"step_definitions.CommonHooks.setup()"}}],"line":41,"name":"Invalid credential login attempt","description":"","id":"crater-app-user-management;invalid-credential-login-attempt;;4","after":[{"result":{"duration":78185000,"status":"passed"},"match":{"location":"step_definitions.CommonHooks.teardown()"}}],"type":"scenario","keyword":"Scenario Outline","steps":[{"result":{"duration":2629364000,"status":"passed"},"line":32,"name":"I enter email \"\" and password \"Testing123\"","match":{"arguments":[{"val":"\"\"","offset":14},{"val":"\"Testing123\"","offset":30}],"location":"step_definitions.UserManagementSteps.i_enter_email_and_password(java.lang.String,java.lang.String)"},"keyword":"When "},{"result":{"duration":697306000,"status":"passed"},"line":33,"name":"I click on login button","match":{"location":"step_definitions.UserManagementSteps.i_click_on_login_button()"},"keyword":"And "},{"result":{"duration":65891000,"status":"passed"},"line":34,"name":"I should see an error message","match":{"location":"step_definitions.UserManagementSteps.i_should_see_an_error_message()"},"keyword":"Then "},{"result":{"duration":33449000,"status":"passed"},"line":35,"name":"I should not be logged in","match":{"location":"step_definitions.UserManagementSteps.i_should_not_be_logged_in()"},"keyword":"And "}],"tags":[{"name":"@login"},{"name":"@regression"},{"name":"@invalidLoginAttempts"}]},{"line":6,"name":"","description":"","type":"background","keyword":"Background","steps":[{"result":{"duration":5124998000,"status":"passed"},"line":7,"name":"As a user, I am on the login page","match":{"location":"step_definitions.UserManagementSteps.as_a_user_i_am_on_the_login_page()"},"keyword":"Given "}]},{"start_timestamp":"2023-04-19T01:31:46.600Z","before":[{"result":{"duration":4931416000,"status":"passed"},"match":{"location":"step_definitions.CommonHooks.setup()"}}],"line":42,"name":"Invalid credential login attempt","description":"","id":"crater-app-user-management;invalid-credential-login-attempt;;5","after":[{"result":{"duration":77166000,"status":"passed"},"match":{"location":"step_definitions.CommonHooks.teardown()"}}],"type":"scenario","keyword":"Scenario Outline","steps":[{"result":{"duration":3661414000,"status":"passed"},"line":32,"name":"I enter email \"nothing@primetechschool.com\" and password \"\"","match":{"arguments":[{"val":"\"nothing@primetechschool.com\"","offset":14},{"val":"\"\"","offset":57}],"location":"step_definitions.UserManagementSteps.i_enter_email_and_password(java.lang.String,java.lang.String)"},"keyword":"When "},{"result":{"duration":731979000,"status":"passed"},"line":33,"name":"I click on login button","match":{"location":"step_definitions.UserManagementSteps.i_click_on_login_button()"},"keyword":"And "},{"result":{"duration":231054000,"status":"passed"},"line":34,"name":"I should see an error message","match":{"location":"step_definitions.UserManagementSteps.i_should_see_an_error_message()"},"keyword":"Then "},{"result":{"duration":28223000,"status":"passed"},"line":35,"name":"I should not be logged in","match":{"location":"step_definitions.UserManagementSteps.i_should_not_be_logged_in()"},"keyword":"And "}],"tags":[{"name":"@login"},{"name":"@regression"},{"name":"@invalidLoginAttempts"}]}],"name":"Crater app user management","description":"  Users with permissions should be able interact \n  with the application on successful login","id":"crater-app-user-management","keyword":"Feature","uri":"file:src/test/resources/features/userManagement.feature","tags":[{"name":"@login","type":"Tag","location":{"line":1,"column":1}},{"name":"@regression","type":"Tag","location":{"line":1,"column":8}}]}]
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 7,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 10114755000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "As an entity user, I am logged in",
+            "match": {
+              "location": "step_definitions.ItemsManagement.as_an_entity_user_i_am_logged_in()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 5243963000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I navigate to Items tab",
+            "match": {
+              "location": "step_definitions.ItemsManagement.i_navigate_to_items_tab()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-04-19T23:32:39.526Z",
+        "before": [
+          {
+            "result": {
+              "duration": 6311820000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "step_definitions.CommonHooks.setup()"
+            }
+          }
+        ],
+        "line": 21,
+        "name": "As a user, I am able to create an item or a service",
+        "description": "",
+        "id": "items-management;as-a-user--i-am-able-to-create-an-item-or-a-service",
+        "after": [
+          {
+            "result": {
+              "duration": 95210000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "step_definitions.CommonHooks.teardown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 111610000,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I click on the Add Item button",
+            "match": {
+              "location": "step_definitions.ItemsManagement.i_click_on_the_add_item_button()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 797919000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "I should be on item input page",
+            "match": {
+              "location": "step_definitions.ItemsManagement.i_should_be_on_item_input_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1935719000,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I provide item information to the fields",
+            "match": {
+              "location": "step_definitions.ItemsManagement.i_provide_item_information_to_the_fields(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "MacBook Pro",
+                  "180000",
+                  "box",
+                  "a good thing"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 66932000,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "I click Save Item button",
+            "match": {
+              "location": "step_definitions.ItemsManagement.i_click_save_item_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//a[text()\u003d\u0027null\u0027]\"}\n  (Session info: chrome\u003d112.0.5615.121)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027PrimeTechs-iMac\u0027, ip: \u0027192.168.0.154\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002712.5.1\u0027, java.version: \u002717.0.5\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 112.0.5615.121, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: /var/folders/_c/mrh3_0_j35j...}, goog:chromeOptions: {debuggerAddress: localhost:51998}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: 2c3df7a7c0e2a72fbdc26215e6486807\n*** Element info: {Using\u003dxpath, value\u003d//a[text()\u003d\u0027null\u0027]}\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\n\tat step_definitions.ItemsManagement.the_item_is_added_to_the_item_list_table(ItemsManagement.java:64)\n\tat ✽.The Item is added to the Item list table(file:///Users/primetech/Documents/PrimetechWorkSpace/PrimeTechJavaWorkspace/firstCucumberProject/./src/test/resources/features/itemsManagement.feature:27)\n",
+              "duration": 5073881000,
+              "status": "failed"
+            },
+            "line": 27,
+            "name": "The Item is added to the Item list table",
+            "match": {
+              "location": "step_definitions.ItemsManagement.the_item_is_added_to_the_item_list_table()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression"
+          },
+          {
+            "name": "@itemsTests"
+          },
+          {
+            "name": "@createItemWithDataTable"
+          },
+          {
+            "name": "@smoketest"
+          }
+        ]
+      }
+    ],
+    "name": "Items Management",
+    "description": "",
+    "id": "items-management",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/itemsManagement.feature",
+    "tags": [
+      {
+        "name": "@regression",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@itemsTests",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 13
+        }
+      }
+    ]
+  }
+]

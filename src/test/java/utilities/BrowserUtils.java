@@ -33,6 +33,12 @@ public class BrowserUtils {
 		letsSelect.selectByVisibleText(tobeSelectedOptionText);
 	}
 	
+	// select by index
+	public void selectByIndex(WebElement selectElement, int index) {
+		letsSelect = new Select(selectElement);
+		letsSelect.selectByIndex(index);
+	}
+	
 	// return the selected option from the dropdown
 	public String getSelectedOption(WebElement selectElement) {
 		letsSelect = new Select(selectElement);

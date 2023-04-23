@@ -13,8 +13,7 @@ public static WebDriver driver;
 				"/Users/primetech/Documents/SeleniumTools/chromeDriver/chromedriver_mac_arm64/chromedriver");
 		if (driver == null) {
 			driver = new ChromeDriver();
-			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			driver.manage().window().maximize();
+			
 		}
 		return driver;
 	}

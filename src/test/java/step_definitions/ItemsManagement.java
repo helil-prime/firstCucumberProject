@@ -1,7 +1,11 @@
 package step_definitions;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
+
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -86,6 +90,25 @@ public class ItemsManagement {
 	    System.out.println(itemPrice); //$ 800.00
 	    String trimmedPrice = itemPrice.substring(2);
 	    Assert.assertEquals(trimmedPrice, updatedPrice + ".00");
+	}
+	
+	
+	// data table item create steps
+	
+	@When("I provide item information to the fields")
+	public void i_provide_item_information_to_the_fields(DataTable dataTable) {
+		List<String> itemInfo = dataTable.asList();
+		for ( String info : itemInfo) {
+			System.out.println(info);
+		}
+		itemName = itemInfo.get(0);
+		itemsPage.addItemName.sendKeys(itemInfo.get(0));
+		itemsPage.addItemPrice.sendKeys(itemInfo.get(1));
+		itemsPage.addItemUnit.click();
+		utils.waitUntilElementVisible(itemsPage.addItem_pc_unit);
+		Driver.getDriver()
+		.findElement(By.xpath("//span[text()='"+ itemInfo.get(2) +"']")).click();
+		itemsPage.addItemDesciption.sendKeys(itemInfo.get(3));
 	}
 
 }

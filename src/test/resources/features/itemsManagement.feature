@@ -15,6 +15,16 @@ Feature: Items Management
     When I provide item information name "iphone", price 1800, unit "pc", and description "a good iphone"
     And I click Save Item button
     Then The Item is added to the Item list table
+    
+    
+  @createItemWithDataTable @smoketest
+  Scenario: As a user, I am able to create an item or a service
+    When I click on the Add Item button
+    Then I should be on item input page
+    When I provide item information to the fields
+    |MacBook Pro|180000|box|a good thing|
+    And I click Save Item button
+    Then The Item is added to the Item list table
 
   @updateItem
   Scenario: As a user, I am able to update an item or a service

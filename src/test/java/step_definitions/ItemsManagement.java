@@ -1,5 +1,7 @@
 package step_definitions;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
 import org.junit.Assert;
@@ -60,6 +62,10 @@ public class ItemsManagement {
 	}
 	@Then("The Item is added to the Item list table")
 	public void the_item_is_added_to_the_item_list_table() {
+		itemsPage.filterButton.click();
+		utils.waitUntilElementVisible(itemsPage.filterNameBox);
+		utils.actionsSendKeys(itemsPage.filterNameBox, itemName);
+		//itemsPage.filterNameBox.sendKeys(itemName);
 		Assert.assertTrue(
 				Driver.getDriver().findElement(By.xpath("//a[text()='"+itemName+"']")).isDisplayed());
 	}
@@ -109,6 +115,26 @@ public class ItemsManagement {
 		Driver.getDriver()
 		.findElement(By.xpath("//span[text()='"+ itemInfo.get(2) +"']")).click();
 		itemsPage.addItemDesciption.sendKeys(itemInfo.get(3));
+	}
+	
+	
+	
+	// item delete scenario 
+	@When("I create an item with following information")
+	public void i_create_an_item_with_following_information(DataTable dataTable) {
+	    List<String> itemInfo = dataTable.asList();
+	    itemName = itemInfo.get(0) + utils.randomNumber();
+	    itemsPage.createAnItem(itemName, itemInfo.get(1), itemInfo.get(2), itemInfo.get(3));
+	}
+	@When("I delete the item created above")
+	public void i_delete_the_item_created_above() throws InterruptedException {
+	   System.out.println(itemName);
+	   itemsPage.deleteAnItem(itemName);
+	}
+	@Then("The item is no longer in the items list table")
+	public void the_item_is_no_longer_in_the_items_list_table() {
+		utils.waitUntilElementVisible(itemsPage.filterNoResultFoundMessage);
+		Assert.assertTrue(itemsPage.filterNoResultFoundMessage.isDisplayed());
 	}
 
 }

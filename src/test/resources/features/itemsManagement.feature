@@ -33,3 +33,21 @@ Feature: Items Management
     When I update the item price to 80000 dollars
     And I click Update Item button
     Then the Item price is updated to 800 dollars
+    
+  @deleteItem  
+  Scenario: As a user, I am able to delete an item
+    When I click on the Add Item button
+    Then I should be on item input page
+    When I create an item with following information
+    | Donut | 1400 | dz | very sweet donut which I dont like |
+    Then The Item is added to the Item list table
+    When I delete the item created above
+    Then The item is no longer in the items list table
+    
+    
+    
+    
+    
+    
+    
+    

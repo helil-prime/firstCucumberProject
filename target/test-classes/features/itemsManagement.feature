@@ -16,6 +16,25 @@ Feature: Items Management
     And I click Save Item button
     Then The Item is added to the Item list table
     
+  @createItemDB
+  Scenario: As a user, I am able to create an item or a service on UI and check the item in DB
+    When I click on the Add Item button
+    Then I should be on item input page
+    When I create an item with following information
+    | Coffee mug | 1400 | pc | very nice and pretty mug |
+    And I click Save Item button
+    #Then The Item is added to the Item list table
+    And I should be able to see the item in database
+    When I delete the item created above
+    Then The item is no longer in the items list table
+    
+    @createItemInDB
+  Scenario: As a user, I am able to create an item or a service on UI and check the item in DB
+    When I insert a record into database called "Xbox"
+    Then Item should be listed in the items table on the UI
+    When I delete the item created above
+    Then The item is no longer in the items list table
+    
     
   @createItemWithDataTable @smoketest
   Scenario: As a user, I am able to create an item or a service
@@ -33,6 +52,20 @@ Feature: Items Management
     When I update the item price to 80000 dollars
     And I click Update Item button
     Then the Item price is updated to 800 dollars
+    
+   @updateItemDB
+  Scenario: As a user, I am able to create an item or a service on UI and check the item in DB
+    When I click on the Add Item button
+    Then I should be on item input page
+    When I create an item with following information
+    | Coffee mug | 1400 | pc | very nice and pretty mug |
+    And I click Save Item button
+    #Then The Item is added to the Item list table
+    And I should be able to see the item in database
+    When I update the item price to 1800
+    Then The item price has been updated to 1800 in database
+    When I delete the item created above
+    Then The item is no longer in the items list table
     
   @deleteItem  
   Scenario: As a user, I am able to delete an item

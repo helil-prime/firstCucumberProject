@@ -20,10 +20,28 @@ public class BrowserUtils {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
+	// waits for an element to be gone
+	public void waitUntilElementNotVisible(WebElement element) {
+		wait = new WebDriverWait(Driver.getDriver(), 10);
+		wait.until(ExpectedConditions.invisibilityOfAllElements(element));
+	}
+
+	// waits for an element to be gone
+	public void waitUntilElementToBeClickable(WebElement element) {
+		wait = new WebDriverWait(Driver.getDriver(), 10);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+
 	// sendkeys via actions class to the field that is not enteractable
 	public void actionsSendKeys(WebElement element, String text) {
 		action = new Actions(Driver.getDriver());
 		action.sendKeys(element, text).build().perform();
+	}
+
+	// action click
+	public void actionsClick(WebElement element) {
+		action = new Actions(Driver.getDriver());
+		action.click(element).build().perform();
 	}
 
 	// select by visible text
@@ -37,13 +55,13 @@ public class BrowserUtils {
 		letsSelect = new Select(selectElement);
 		letsSelect.selectByValue(value);
 	}
-	
+
 	// select by index
 	public void selectByIndex(WebElement selectElement, int index) {
 		letsSelect = new Select(selectElement);
 		letsSelect.selectByIndex(index);
 	}
-	
+
 	// return the selected option from the dropdown
 	public String getSelectedOption(WebElement selectElement) {
 		letsSelect = new Select(selectElement);

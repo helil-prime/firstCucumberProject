@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import utilities.BrowserUtils;
 import utilities.Driver;
 
@@ -73,6 +72,9 @@ public class ItemsPage {
 	
 	@FindBy (xpath = "//span[text()='No Results Found']")
 	public WebElement filterNoResultFoundMessage;
+	
+	@FindBy (xpath = "//p[contains(text(), 'Success!')]")
+	public WebElement itemCreateSuccessMessage;
 
 	/*
 	 * In ItemsPage class, create a method which accepts 4 parameters, itemName,
@@ -102,20 +104,28 @@ public class ItemsPage {
 	}
 	
 	
+	
 	public void deleteAnItem(String name) throws InterruptedException {
+		//utils.waitUntilElementNotVisible(itemCreateSuccessMessage);
+		Thread.sleep(10000);
+		utils.waitUntilElementToBeClickable(filterButton);
 		filterButton.click();
 		utils.waitUntilElementVisible(filterNameBox);
 		utils.actionsSendKeys(filterNameBox, name);
 //		itemNameInTheItemsTable.findElement(
 //				By.xpath(String.format(itemNameInTheItemsTable.getAttribute("xpath"), name))).isDisplayed();
 		Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//a[text()='"+name+"']")).isDisplayed());
-		utils.waitUntilElementVisible(filterItem3dot);
+		
+		utils.waitUntilElementToBeClickable(filterItem3dot);
 		Thread.sleep(2000);
-		filterItem3dot.click();
-		utils.waitUntilElementVisible(filter3dotDeleteBtn);
-		filter3dotDeleteBtn.click();
-		utils.waitUntilElementVisible(itemDeleteOkayBtn);
-		itemDeleteOkayBtn.click();
+		utils.actionsClick(filterItem3dot);
+		//filterItem3dot.click();
+		utils.waitUntilElementToBeClickable(filter3dotDeleteBtn);
+		utils.actionsClick(filter3dotDeleteBtn);
+		//filter3dotDeleteBtn.click();
+		utils.waitUntilElementToBeClickable(itemDeleteOkayBtn);
+		//itemDeleteOkayBtn.click();
+		utils.actionsClick(itemDeleteOkayBtn);
 	}
 	
 }

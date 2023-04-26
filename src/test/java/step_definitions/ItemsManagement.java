@@ -2,6 +2,7 @@ package step_definitions;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Assert;
@@ -15,6 +16,7 @@ import pages.CraterCommonPage;
 import pages.ItemsPage;
 import pages.LogInPage;
 import utilities.BrowserUtils;
+import utilities.DButils;
 import utilities.DataReader;
 import utilities.Driver;
 
@@ -24,8 +26,10 @@ public class ItemsManagement {
 	ItemsPage itemsPage = new ItemsPage();
 	CraterCommonPage commonPage = new CraterCommonPage();
 	BrowserUtils utils = new BrowserUtils();
+	DButils dbutil = new DButils();
 	
 	static String itemName;
+	static List<String> list;
 	
 	@Given("As an entity user, I am logged in")
 	public void as_an_entity_user_i_am_logged_in() {
@@ -122,9 +126,9 @@ public class ItemsManagement {
 	// item delete scenario 
 	@When("I create an item with following information")
 	public void i_create_an_item_with_following_information(DataTable dataTable) {
-	    List<String> itemInfo = dataTable.asList();
-	    itemName = itemInfo.get(0) + utils.randomNumber();
-	    itemsPage.createAnItem(itemName, itemInfo.get(1), itemInfo.get(2), itemInfo.get(3));
+		list = dataTable.asList();
+	    itemName = list.get(0) + utils.randomNumber();
+	    itemsPage.createAnItem(itemName, list.get(1), list.get(2), list.get(3));
 	}
 	@When("I delete the item created above")
 	public void i_delete_the_item_created_above() throws InterruptedException {
@@ -136,5 +140,64 @@ public class ItemsManagement {
 		utils.waitUntilElementVisible(itemsPage.filterNoResultFoundMessage);
 		Assert.assertTrue(itemsPage.filterNoResultFoundMessage.isDisplayed());
 	}
-
+	
+	// item create and check in db steps
+	@Then("I should be able to see the item in database")
+	public void i_should_be_able_to_see_the_item_in_database() {
+		String query = "SELECT name, price, unit_id, description FROM items where name='"+itemName+"';";
+		System.out.println(query);
+		List<String> itemInfo = dbutil.selectArecord(query);
+		for (String string : itemInfo) {
+			System.out.println(string);
+		}
+		
+		Assert.assertEquals(itemName, itemInfo.get(0));
+		
+		for (int i = 1; i < list.size(); i++) {
+			if (list.get(i).equals("pc")) {
+				Assert.assertEquals(itemInfo.get(i), "11");
+			} else {
+				Assert.assertEquals(list.get(i), itemInfo.get(i));
+			}
+		}
+	}
+	
+	// update item and check in db
+	@When("I update the item price to {int}")
+	public void i_update_the_item_price_to(Integer int1) {
+	   String updateQuery = "UPDATE items SET price='"+ int1 +"' WHERE name='"+itemName+"';";
+	   dbutil.updateRecord(updateQuery);
+	}
+	@Then("The item price has been updated to {int} in database")
+	public void the_item_price_has_been_updated_to_in_database(Integer int1) {
+		String query = "SELECT name, price, unit_id, description FROM items where name='"+itemName+"';";
+	    List<String> itemInfo = dbutil.selectArecord(query);
+	    System.out.println(itemInfo.get(1));
+	    Assert.assertEquals(itemInfo.get(1), int1.toString());
+	}
+	
+	
+	// insert a record to database steps
+	
+	@When("I insert a record into database called {string}")
+	public void i_insert_a_record_into_database(String name) {
+	    itemName = name + utils.randomNumber();
+	    int id = utils.randomNumber() + 7;
+	    
+		String Query = 
+	    		"INSERT INTO items VALUES('"+id+"', '"+itemName+"', 'Nice games', '5500', '1', '11', '2023-04-25 23:09:32', '2023-04-25 23:09:32', '4', '1', '0');";
+       
+		dbutil.insertRecord(Query);
+	}
+	@Then("Item should be listed in the items table on the UI")
+	public void item_should_be_listed_in_the_items_table_on_the_ui() throws InterruptedException {
+		Driver.getDriver().navigate().refresh();
+		utils.waitUntilElementToBeClickable(itemsPage.filterButton);
+		utils.actionsClick(itemsPage.filterButton);
+		utils.waitUntilElementVisible(itemsPage.filterNameBox);
+		utils.actionsSendKeys(itemsPage.filterNameBox, itemName);
+		Thread.sleep(2000);
+		Assert.assertTrue(
+				Driver.getDriver().findElement(By.xpath("//a[text()='"+itemName+"']")).isDisplayed());
+	}
 }

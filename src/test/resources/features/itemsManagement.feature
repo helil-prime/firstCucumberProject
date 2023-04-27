@@ -22,8 +22,7 @@ Feature: Items Management
     Then I should be on item input page
     When I create an item with following information
     | Coffee mug | 1400 | pc | very nice and pretty mug |
-    And I click Save Item button
-    #Then The Item is added to the Item list table
+    Then The Item is added to the Item list table
     And I should be able to see the item in database
     When I delete the item created above
     Then The item is no longer in the items list table
@@ -42,7 +41,7 @@ Feature: Items Management
     Then I should be on item input page
     When I provide item information to the fields
     |MacBook Pro|180000|box|a good thing|
-    And I click Save Item button
+    And I click Update Item button
     Then The Item is added to the Item list table
 
   @updateItem
@@ -59,8 +58,7 @@ Feature: Items Management
     Then I should be on item input page
     When I create an item with following information
     | Coffee mug | 1400 | pc | very nice and pretty mug |
-    And I click Save Item button
-    #Then The Item is added to the Item list table
+    Then The Item is added to the Item list table
     And I should be able to see the item in database
     When I update the item price to 1800
     Then The item price has been updated to 1800 in database
@@ -77,7 +75,13 @@ Feature: Items Management
     When I delete the item created above
     Then The item is no longer in the items list table
     
-    
+    @deleteItemInDB
+  Scenario: As a user, I am able to create and delete an item in DB and check the item in DB
+    When I insert a record into database called "Xbox"
+    Then Item should be listed in the items table on the UI
+    When I delete the item created above via db
+    And I refresh the page
+    Then The item is no longer in the items list table
     
     
     

@@ -106,12 +106,14 @@ public class ItemsPage {
 	
 	
 	public void deleteAnItem(String name) throws InterruptedException {
-		//utils.waitUntilElementNotVisible(itemCreateSuccessMessage);
-		Thread.sleep(10000);
-		utils.waitUntilElementToBeClickable(filterButton);
-		filterButton.click();
-		utils.waitUntilElementVisible(filterNameBox);
-		utils.actionsSendKeys(filterNameBox, name);
+		if (!filterNameBox.isDisplayed()) {
+			Thread.sleep(10000);
+			utils.waitUntilElementToBeClickable(filterButton);
+			filterButton.click();
+			utils.waitUntilElementVisible(filterNameBox);
+			utils.actionsSendKeys(filterNameBox, name);
+		}
+		
 //		itemNameInTheItemsTable.findElement(
 //				By.xpath(String.format(itemNameInTheItemsTable.getAttribute("xpath"), name))).isDisplayed();
 		Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//a[text()='"+name+"']")).isDisplayed());

@@ -29,6 +29,7 @@ public class ItemsManagement {
 	DButils dbutil = new DButils();
 	
 	static String itemName;
+	static int itemId;
 	static List<String> list;
 	
 	@Given("As an entity user, I am logged in")
@@ -65,11 +66,14 @@ public class ItemsManagement {
 	   itemsPage.saveItemButton.click();
 	}
 	@Then("The Item is added to the Item list table")
-	public void the_item_is_added_to_the_item_list_table() {
-		itemsPage.filterButton.click();
-		utils.waitUntilElementVisible(itemsPage.filterNameBox);
-		utils.actionsSendKeys(itemsPage.filterNameBox, itemName);
-		//itemsPage.filterNameBox.sendKeys(itemName);
+	public void the_item_is_added_to_the_item_list_table() throws InterruptedException {
+		if (!utils.isElementPresent(itemsPage.filterNameBox)) {
+			utils.waitUntilElementToBeClickable(itemsPage.filterButton);
+			itemsPage.filterButton.click();
+			utils.waitUntilElementVisible(itemsPage.filterNameBox);
+			utils.actionsSendKeys(itemsPage.filterNameBox, itemName);
+		}
+		Thread.sleep(2000);
 		Assert.assertTrue(
 				Driver.getDriver().findElement(By.xpath("//a[text()='"+itemName+"']")).isDisplayed());
 	}
@@ -137,6 +141,11 @@ public class ItemsManagement {
 	}
 	@Then("The item is no longer in the items list table")
 	public void the_item_is_no_longer_in_the_items_list_table() {
+		if (!itemsPage.filterNameBox.isDisplayed()) {
+			itemsPage.filterButton.click();
+			utils.waitUntilElementVisible(itemsPage.filterNameBox);
+			utils.actionsSendKeys(itemsPage.filterNameBox, itemName);
+		}
 		utils.waitUntilElementVisible(itemsPage.filterNoResultFoundMessage);
 		Assert.assertTrue(itemsPage.filterNoResultFoundMessage.isDisplayed());
 	}
@@ -182,10 +191,10 @@ public class ItemsManagement {
 	@When("I insert a record into database called {string}")
 	public void i_insert_a_record_into_database(String name) {
 	    itemName = name + utils.randomNumber();
-	    int id = utils.randomNumber() + 7;
+	    itemId = utils.randomNumber() + 7;
 	    
 		String Query = 
-	    		"INSERT INTO items VALUES('"+id+"', '"+itemName+"', 'Nice games', '5500', '1', '11', '2023-04-25 23:09:32', '2023-04-25 23:09:32', '4', '1', '0');";
+	    		"INSERT INTO items VALUES('"+itemId+"', '"+itemName+"', 'Nice games', '5500', '1', '11', '2023-04-25 23:09:32', '2023-04-25 23:09:32', '4', '1', '0');";
        
 		dbutil.insertRecord(Query);
 	}
@@ -199,5 +208,19 @@ public class ItemsManagement {
 		Thread.sleep(2000);
 		Assert.assertTrue(
 				Driver.getDriver().findElement(By.xpath("//a[text()='"+itemName+"']")).isDisplayed());
+	}
+	
+	@When("I refresh the page")
+	public void i_refresh_the_page() {
+	    Driver.getDriver().navigate().refresh();
+	}
+	
+	
+	// delete item in db
+	@When("I delete the item created above via db")
+	public void i_delete_the_item_created_above_via_db() {
+		System.out.println(itemId);
+		String deleteQuery = "DELETE FROM items WHERE id='"+itemId+"';";
+	    dbutil.deleteRecord(deleteQuery);
 	}
 }

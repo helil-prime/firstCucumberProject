@@ -68,11 +68,22 @@ public class BrowserUtils {
 		String option = letsSelect.getFirstSelectedOption().getText();
 		return option;
 	}
-
+	
+	// this method generate 3 digit ramdom number
 	public int randomNumber() {
 		Random rand = new Random();
 		int randomNum = rand.nextInt((999 - 100) + 1) + 100;
 		return randomNum;
+	}
+	
+	// this method checks if an element exist in the dom (in the whole html)
+	public boolean isElementPresent(WebElement element) {
+		try {
+			element.isDisplayed();
+		} catch (org.openqa.selenium.NoSuchElementException e) {
+			return false;
+		}
+		return true;
 	}
 
 }

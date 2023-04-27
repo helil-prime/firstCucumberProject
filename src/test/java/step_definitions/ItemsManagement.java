@@ -140,9 +140,11 @@ public class ItemsManagement {
 	   itemsPage.deleteAnItem(itemName);
 	}
 	@Then("The item is no longer in the items list table")
-	public void the_item_is_no_longer_in_the_items_list_table() {
+	public void the_item_is_no_longer_in_the_items_list_table() throws InterruptedException {
+		Thread.sleep(2000);
 		if (!itemsPage.filterNameBox.isDisplayed()) {
-			itemsPage.filterButton.click();
+			utils.waitUntilElementToBeClickable(itemsPage.filterButton);
+			utils.actionsClick(itemsPage.filterButton);
 			utils.waitUntilElementVisible(itemsPage.filterNameBox);
 			utils.actionsSendKeys(itemsPage.filterNameBox, itemName);
 		}

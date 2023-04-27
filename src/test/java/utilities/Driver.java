@@ -7,7 +7,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
-
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import io.github.bonigarcia.wdm.managers.EdgeDriverManager;
 import io.github.bonigarcia.wdm.managers.FirefoxDriverManager;
@@ -34,7 +33,7 @@ public class Driver {
 				driver = new FirefoxDriver();
 				break;
 			case "edge":
-				EdgeDriverManager.iedriver().setup();
+				EdgeDriverManager.edgedriver().setup();
 				driver = new EdgeDriver();
 				break;
 			case "safari":

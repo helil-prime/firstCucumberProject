@@ -1,13 +1,8 @@
 package step_definitions;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.Iterator;
 import java.util.List;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
-
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

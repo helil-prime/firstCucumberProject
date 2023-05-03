@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: Items Management
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 44.86 s <<< FAILURE! - in Items Management
+As a user, I am able to create an item or a service on UI and check the item in DB #2(Items Management)  Time elapsed: 44.86 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on MAC (ba2517fbf33d10b13eebc03b91cbb503)] -> xpath: //div[@name='name']] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'PrimeTechs-iMac', ip: '192.168.0.154', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '12.5.1', java.version: '17.0.5'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 112.0.5615.137, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: /var/folders/_c/mrh3_0_j35j...}, goog:chromeOptions: {debuggerAddress: localhost:49394}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ba2517fbf33d10b13eebc03b91cbb503
+

@@ -1,17 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-05-02T21:22:50 EDT" name="Default suite" finished-at="2023-05-02T21:22:53 EDT" duration-ms="2816">
+  <suite started-at="2023-05-04T21:16:57 EDT" name="API_Suite" finished-at="2023-05-04T21:17:03 EDT" duration-ms="6250">
     <groups>
     </groups>
-    <test started-at="2023-05-02T21:22:50 EDT" name="Default test" finished-at="2023-05-02T21:22:53 EDT" duration-ms="2816">
-      <class name="api_tests.PetStoreAPIs">
-        <test-method signature="findPetsByStatus_providingQueryParam()[pri:0, instance:api_tests.PetStoreAPIs@22e357dc]" started-at="2023-05-02T21:22:51 EDT" name="findPetsByStatus_providingQueryParam" finished-at="2023-05-02T21:22:53 EDT" duration-ms="2781" status="PASS">
+    <test started-at="2023-05-04T21:16:57 EDT" name="API_Test_Execution" finished-at="2023-05-04T21:17:03 EDT" duration-ms="6250">
+      <class name="api_tests.CraterItems">
+        <test-method is-config="true" signature="setup()[pri:0, instance:api_tests.CraterItems@bd4dc25]" started-at="2023-05-04T21:16:57 EDT" name="setup" finished-at="2023-05-04T21:16:58 EDT" duration-ms="1007" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- findPetsByStatus_providingQueryParam -->
-      </class> <!-- api_tests.PetStoreAPIs -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- setup -->
+        <test-method signature="login()[pri:0, instance:api_tests.CraterItems@bd4dc25]" started-at="2023-05-04T21:16:58 EDT" name="login" finished-at="2023-05-04T21:17:01 EDT" duration-ms="2624" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="createItem()[pri:0, instance:api_tests.CraterItems@bd4dc25]" started-at="2023-05-04T21:17:01 EDT" name="createItem" finished-at="2023-05-04T21:17:02 EDT" depends-on-methods="api_tests.CraterItems.login" duration-ms="1107" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createItem -->
+        <test-method signature="getItem()[pri:0, instance:api_tests.CraterItems@bd4dc25]" started-at="2023-05-04T21:17:02 EDT" name="getItem" finished-at="2023-05-04T21:17:03 EDT" depends-on-methods="api_tests.CraterItems.createItem" duration-ms="542" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getItem -->
+        <test-method signature="updateItem()[pri:0, instance:api_tests.CraterItems@bd4dc25]" started-at="2023-05-04T21:17:03 EDT" name="updateItem" finished-at="2023-05-04T21:17:03 EDT" depends-on-methods="api_tests.CraterItems.getItem" duration-ms="588" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateItem -->
+        <test-method signature="deleteItem()[pri:0, instance:api_tests.CraterItems@bd4dc25]" started-at="2023-05-04T21:17:03 EDT" name="deleteItem" finished-at="2023-05-04T21:17:03 EDT" depends-on-methods="api_tests.CraterItems.updateItem" duration-ms="305" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteItem -->
+      </class> <!-- api_tests.CraterItems -->
+    </test> <!-- API_Test_Execution -->
+  </suite> <!-- API_Suite -->
 </testng-results>

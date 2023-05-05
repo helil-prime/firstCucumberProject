@@ -3,16 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="api_tests.TestNgDemo">
+      <class name="api_tests.CraterItems">
         <methods>
-          <include name="assertionDemo"/>
-          <include name="softAssertDemo"/>
-          <include name="afterTest"/>
-          <include name="beforeMethod"/>
-          <include name="beforeTest"/>
-          <include name="afterMethod"/>
+          <include name="login"/>
+          <include name="getItem"/>
+          <include name="updateItem"/>
+          <include name="setup"/>
+          <include name="createItem"/>
         </methods>
-      </class> <!-- api_tests.TestNgDemo -->
+      </class> <!-- api_tests.CraterItems -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
